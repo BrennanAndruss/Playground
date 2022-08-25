@@ -21,20 +21,37 @@ class Main
         }
         words.trim();
 
+        words = "any and any if one";
+
         // Print words and get user input
         System.out.println("Type the words below: ");
         System.out.println(words);
         wordsInput = input.nextLine();
 
-        // Determine and print results
+        /*
+        Determine and print results
+        */
+        
         int wordsLength = 0;
         int var1 = words.length();
         int var2 = wordsInput.length();
+        int diff;
+
+        // Select the smaller num to avoid out of range errors
         if(var1 > var2)
         {
-            System.out.println("y");
+            wordsLength = var2;
+            diff = var1 - var2;
         }
+        else
+        {
+            wordsLength = var1;
+            diff = var2 - var1;
+        }
+
+        // Calculate accuracy and time to the tenths place
         int correctChars = 0;
+
         for(int i = 0; i < wordsLength; i++)
         {
             if(words.charAt(i) == wordsInput.charAt(i))
@@ -42,9 +59,10 @@ class Main
                 correctChars++;
             }
         }
+
+        double accuracy = ((correctChars * 1000) / (wordsLength + diff));
         
-        //
-        System.out.println(wordsInput);
-        System.out.println(correctChars);
+        // Print results
+        System.out.println("Accuracy: " + accuracy/10);
     }
 }
