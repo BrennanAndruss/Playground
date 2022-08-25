@@ -1,7 +1,7 @@
 import java.util.Scanner;
 import java.util.Random;
 
-class Main
+public class Main
 {
     public static void main(String[] args)
     {
@@ -10,23 +10,22 @@ class Main
         
         // Generate random words
         String words = "";
-        String[] wordList = {"person", "place", "thing", "and", "the", "any", "one", "if", "an"};
-        String wordsInput = "";
+        // String[] wordList = {"person", "place", "thing", "and", "the", "any", "one", "if", "an"};
         int index = 0;
 
         for(int i = 0; i < 5; i++)
         {
-            index = rand.nextInt(wordList.length);
-            words += wordList[index] + " ";
+            // index = rand.nextInt(wordList.length);
+            // words += wordList[index] + " ";
+            index = rand.nextInt(Bank.wordBank.length);
+            words += Bank.wordBank[index] + " ";
         }
         words.trim();
-
-        words = "any and any if one";
 
         // Print words and get user input
         System.out.println("Type the words below: ");
         System.out.println(words);
-        wordsInput = input.nextLine();
+        String wordsInput = input.nextLine();
 
         /*
         Determine and print results
